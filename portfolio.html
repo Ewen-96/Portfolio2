@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ewen Bros | BUT Réseaux et Télécommunications</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .card h3 {
+            color: #764ba2;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card h4 {
+            color: #555;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .photo-placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .competences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .competence-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .competence-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .competence-card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .competence-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .competence-card li {
+            margin: 0.3rem 0;
+        }
+
+        .sae-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .sae-card-mini {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #4ecdc4;
+            cursor: pointer;
+        }
+
+        .sae-card-mini:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .sae-card-mini h3 {
+            color: #4ecdc4;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .sae-card-mini .semester {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .ac-list {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+
+        .ac-list ul {
+            margin-left: 1.5rem;
+        }
+
+        .ac-list li {
+            margin: 0.5rem 0;
+        }
+
+        .traces-section {
+            background-color: #fff9e6;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 1rem 0;
+        }
+
+        .autoevaluation {
+            background-color: #e8f5e9;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+            margin: 1rem 0;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .badge {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+
+        .grade {
+            display: inline-block;
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #6c757d;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+
+        .semester-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .sae-list {
+                grid-template-columns: 1fr;
+            }
+
+            .competences-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Ewen Bros</h1>
+            <p>BUT Réseaux & Télécommunications - IUT de Caen</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#accueil" onclick="showSection('accueil')" class="active">Accueil</a></li>
+            <li><a href="#presentation" onclick="showSection('presentation')">Présentation & Projection</a></li>
+            <li><a href="#sae" onclick="showSection('sae')">SAÉ</a></li>
+            <li><a href="#bilan-s1" onclick="showSection('bilan-s1')">Bilan S1</a></li>
+            <li><a href="#bilan-s2" onclick="showSection('bilan-s2')">Bilan S2</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- SECTION ACCUEIL -->
+        <section id="accueil" class="section active">
+            <div class="card">
+                <h2>Bienvenue sur mon Portfolio</h2>
+                
+                <div class="photo-container">
+                    <div class="photo-placeholder">
+                        EB
+                    </div>
+                </div>
+
+                <h3>Qui suis-je ?</h3>
+                <p>
+                    Je m'appelle <strong>Ewen Bros</strong>, étudiant en <strong>BUT Réseaux et Télécommunications</strong> à l'IUT de Caen. 
+                    Passionné par les technologies réseau, la cybersécurité et le développement d'applications, je développe mes compétences 
+                    à travers des projets pratiques et des situations professionnelles concrètes.
+                </p>
+
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <span class="badge">🎓 BUT R&T</span>
+                    <span class="badge">🌐 Réseaux</span>
+                    <span class="badge">🔐 Cybersécurité</span>
+                    <span class="badge">💻 Développement</span>
+                </div>
+
+                <h3>Finalité de ce portfolio</h3>
+                <p>
+                    Ce portfolio a pour objectif de documenter et analyser ma trajectoire de développement tout au long de ma formation en BUT Réseaux et Télécommunications. 
+                    Il présente les compétences que j'ai développées à travers les différentes Situations d'Apprentissage et d'Évaluation (SAÉ), en mobilisant 
+                    des traces et des preuves issues de mes réalisations concrètes.
+                </p>
+
+                <h3>Ma démarche de progression</h3>
+                <p>
+                    Mon approche se base sur une démarche réflexive continue. Pour chaque SAÉ, j'analyse mes réussites, mes difficultés, 
+                    et les compétences développées. Cette démarche me permet de devenir acteur de ma formation, de prendre du recul sur mon évolution, 
+                    et d'acquérir l'autonomie nécessaire pour devenir un professionnel des réseaux et télécommunications.
+                </p>
+
+                <h3>Les 4 compétences du BUT R&T</h3>
+                <div class="competences-grid">
+                    <div class="competence-card">
+                        <h3>🔐 Compétence 1</h3>
+                        <p><strong>Administrer les réseaux et l'Internet</strong></p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Configuration switches, routeurs, VLAN, sécurisation SSH, administration serveurs</p>
+                    </div>
+                    <div class="competence-card">
+                        <h3>📡 Compétence 2</h3>
+                        <p><strong>Connecter les entreprises et les usagers</strong></p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Analyse spectrale, mesures radioélectriques, réseaux mobiles 2G/3G/4G</p>
+                    </div>
+                    <div class="competence-card">
+                        <h3>💻 Compétence 3</h3>
+                        <p><strong>Créer des outils et applications pour les R&T</strong></p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Développement web, Python, JavaScript, intégration d'APIs</p>
+                    </div>
+                    <div class="competence-card">
+                        <h3>🛡️ Compétence 4</h3>
+                        <p><strong>Administrer un système d'information sécurisé</strong></p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Cybersécurité, gestion des accès, bonnes pratiques de sécurité</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION PRÉSENTATION ET PROJECTION PROFESSIONNELLE -->
+        <section id="presentation" class="section">
+            <div class="card">
+                <h2>Présentation et Projection Professionnelle</h2>
+
+                <h3>Mon profil</h3>
+                <p>
+                    Étudiant en BUT Réseaux et Télécommunications à l'IUT de Caen, je me spécialise dans l'administration des réseaux, 
+                    la cybersécurité et le développement d'applications pour les infrastructures réseau. Ma formation me permet d'acquérir 
+                    des compétences techniques en configuration de matériel réseau (switches, routeurs Cisco), administration de 
+                    systèmes (Windows Server, Debian), et développement d'outils (Python, JavaScript).
+                </p>
+
+                <h3>Compétences techniques principales</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Cisco CCNA</span>
+                    <span class="tech-tag">Windows Server</span>
+                    <span class="tech-tag">Linux Debian</span>
+                    <span class="tech-tag">GNS3</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">HTML5/CSS3</span>
+                    <span class="tech-tag">SSH</span>
+                    <span class="tech-tag">Active Directory</span>
+                    <span class="tech-tag">VLAN</span>
+                    <span class="tech-tag">IPv6</span>
+                    <span class="tech-tag">MATLAB</span>
+                </div>
+
+                <h3>Évolutions majeures observées</h3>
+                <p>
+                    Depuis le début de ma formation, j'ai considérablement progressé dans ma capacité à comprendre et configurer des architectures réseau complexes. 
+                    La transition du S1 au S2 m'a permis de passer d'une approche théorique à une mise en pratique concrète sur des équipements professionnels. 
+                    J'ai notamment développé mes compétences en :
+                </p>
+                <ul>
+                    <li><strong>Administration réseau :</strong> maîtrise des VLAN, routage inter-VLAN, configuration de switches et routeurs Cisco</li>
+                    <li><strong>Sécurité :</strong> mise en place de mesures de sécurité SSH, gestion des accès, sensibilisation cybersécurité (MOOC ANSSI)</li>
+                    <li><strong>Développement :</strong> création d'applications web interactives, intégration d'APIs, programmation Python</li>
+                    <li><strong>Télécommunications :</strong> compréhension des signaux radioélectriques, analyse spectrale, mesures sur réseaux mobiles</li>
+                </ul>
+
+                <h3>Projection professionnelle</h3>
+                <p>
+                    À l'issue de ma formation, je souhaite m'orienter vers les métiers de <strong>l'administration réseau et de la cybersécurité</strong>. 
+                    Les domaines qui m'intéressent particulièrement sont :
+                </p>
+                <ul>
+                    <li><strong>Administrateur réseaux et systèmes :</strong> gestion et sécurisation des infrastructures IT</li>
+                    <li><strong>Ingénieur cybersécurité :</strong> protection des systèmes d'information, analyse de vulnérabilités</li>
+                    <li><strong>Architecte réseau :</strong> conception et optimisation d'architectures réseau d'entreprise</li>
+                    <li><strong>DevOps / Automatisation :</strong> développement d'outils pour l'administration et le monitoring réseau</li>
+                </ul>
+                <p>
+                    Je suis particulièrement attiré par les environnements techniques qui combinent expertise réseau et développement logiciel, 
+                    permettant d'automatiser et d'optimiser la gestion des infrastructures.
+                </p>
+
+                <h3>Domaines d'intérêt technologique</h3>
+                <ul>
+                    <li>Technologies réseau : VLAN, routage, IPv6, SDN (Software-Defined Networking)</li>
+                    <li>Cybersécurité : firewalls, IDS/IPS, authentification, cryptographie</li>
+                    <li>Virtualisation et cloud : GNS3, Docker, services cloud</li>
+                    <li>Automatisation : scripts Python, APIs REST, monitoring</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION SAÉ - LISTE -->
+        <section id="sae" class="section">
+            <div class="card">
+                <h2>Mes Situations d'Apprentissage et d'Évaluation (SAÉ)</h2>
+                <p>Cette section présente l'ensemble des SAÉ réalisées tout au long de ma formation. Chaque SAÉ est analysée selon une démarche réflexive.</p>
+                
+                <div class="semester-title">📘 Semestre 1</div>
+                <div class="sae-list">
+                    <div class="sae-card-mini" onclick="showSection('sae11')">
+                        <h3>SAÉ 1.1</h3>
+                        <p class="semester">Se sensibiliser à l'hygiène informatique et à la cybersécurité</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">ANSSI</span>
+                            <span class="tech-tag">Cybersécurité</span>
+                        </div>
+                    </div>
+
+                    <div class="sae-card-mini" onclick="showSection('sae12')">
+                        <h3>SAÉ 1.2</h3>
+                        <p class="semester">Découvrir un dispositif réseau</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Cisco</span>
+                            <span class="tech-tag">VLAN</span>
+                            <span class="tech-tag">Routage</span>
+                        </div>
+                    </div>
+
+                    <div class="sae-card-mini" onclick="showSection('sae14')">
+                        <h3>SAÉ 1.4</h3>
+                        <p class="semester">Créer son Portfolio</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                    </div>
+
+                    <div class="sae-card-mini" onclick="showSection('sae15')">
+                        <h3>SAÉ 1.5</h3>
+                        <p class="semester">Traiter des données Python</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">JSON</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-title">📗 Semestre 2</div>
+                <div class="sae-list">
+                    <div class="sae-card-mini" onclick="showSection('sae21')">
+                        <h3>SAÉ 2.1</h3>
+                        <p class="semester">Interconnecter des équipements réseau</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Windows Server</span>
+                            <span class="tech-tag">Active Directory</span>
+                            <span class="tech-tag">SSH</span>
+                        </div>
+                    </div>
+
+                    <div class="sae-card-mini" onclick="showSection('sae22')">
+                        <h3>SAÉ 2.2</h3>
+                        <p class="semester">Mesurer et caractériser un signal</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">MATLAB</span>
+                            <span class="tech-tag">RF</span>
+                            <span class="tech-tag">2G/3G/4G</span>
+                        </div>
+                    </div>
+
+                    <div class="sae-card-mini" onclick="showSection('sae23')">
+                        <h3>SAÉ 2.3</h3>
+                        <p class="semester">Amélioration projet météorologique JavaScript</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API Météo</span>
+                        </div>
+                    </div>
+
+                    <div class="sae-card-mini" onclick="showSection('sae24')">
+                        <h3>SAÉ 2.4</h3>
+                        <p class="semester">Projet Intégratif S2</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">GNS3</span>
+                            <span class="tech-tag">Debian CLI</span>
+                            <span class="tech-tag">IPv6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SAÉ 1.1 -->
+        <section id="sae11" class="section">
+            <div class="card">
+                <h2>SAÉ 1.1 - Se sensibiliser à l'hygiène informatique et à la cybersécurité</h2>
+
+                <h3>Description / Objectifs</h3>
+                <p>
+                    <strong>Contexte général :</strong> Sensibilisation aux bonnes pratiques de cybersécurité et d'hygiène informatique via le MOOC de l'ANSSI<br>
+                    <strong>Mission confiée :</strong> Suivre le MOOC SecNumAcadémie de l'ANSSI, comprendre les enjeux de la cybersécurité et appliquer les bonnes pratiques<br>
+                    <strong>Compétences visées :</strong> Compétence 4 (Administrer un système d'information sécurisé)
+                </p>
+
+                <h3>Apprentissages Critiques (AC) concernés</h3>
+                <div class="ac-list">
+                    <ul>
+                        <li><strong>AC 4.1 :</strong> Comprendre les enjeux de la cybersécurité</li>
+                        <li><strong>AC 4.2 :</strong> Identifier les menaces et vulnérabilités</li>
+                        <li><strong>AC 4.3 :</strong> Appliquer les bonnes pratiques d'hygiène informatique</li>
+                    </ul>
+                </div>
+
+                <h3>Tâches réalisées</h3>
+                <ul>
+                    <li>Suivi complet du MOOC SecNumAcadémie de l'ANSSI</li>
+                    <li>Apprentissage des fondamentaux de la cybersécurité</li>
+                    <li>Compréhension des mécanismes de cryptographie et d'authentification</li>
+                    <li>Étude des bonnes pratiques de sécurité (mots de passe, mises à jour, sauvegarde)</li>
+                </ul>
+
+                <h3>Résultats obtenus / Preuves et traces</h3>
+                <div class="traces-section">
+                    <p><strong>Productions finales :</strong></p>
+                    <ul>
+                        <li>Certification MOOC ANSSI obtenue</li>
+                        <li>Compréhension des enjeux de la sécurité informatique</li>
+                        <li>Acquisition de réflexes de sécurité applicables dans tous les projets</li>
+                    </ul>
+                    <p><strong>Impact :</strong> Cette sensibilisation constitue une base solide pour toutes les activités techniques futures, notamment pour sécuriser les systèmes et réseaux que je configure.</p>
+                </div>
+
+                <h3>Autoévaluation</h3>
+                <div class="autoevaluation">
+                    <p><strong>Difficultés rencontrées :</strong></p>
+                    <p>Certains concepts cryptographiques étaient complexes à appréhender au début (chiffrement symétrique/asymétrique, fonctions de hachage).</p>
+
+                    <p><strong>Solutions mises en place :</strong></p>
+                    <p>J'ai pris le temps de revoir les vidéos et de faire des recherches complémentaires pour bien comprendre les mécanismes.</p>
+
+                    <p><strong>Apprentissages :</strong></p>
+                    <p>Cette SAÉ m'a permis de comprendre l'importance de la sécurité dès la conception des systèmes. J'ai développé une sensibilité à la cybersécurité qui influence maintenant toutes mes pratiques techniques.</p>
+
+                    <p><strong>Positionnement :</strong></p>
+                    <p>Je considère avoir acquis les bases essentielles de la cybersécurité. Cette compétence continuera à se développer à travers les projets techniques.</p>
+                </div>
+
+                <button class="back-button" onclick="showSection('sae')">← Retour aux SAÉ</button>
+            </div>
+        </section>
+
+        <!-- SAÉ 1.2 -->
+        <section id="sae12" class="section">
+            <div class="card">
+                <h2>SAÉ 1.2 - Découvrir un dispositif réseau</h2>
+
+                <h3>Description / Objectifs</h3>
+                <p>
+                    <strong>Contexte général :</strong> Configuration et administration d'un réseau d'entreprise avec switches et routeurs Cisco<br>
+                    <strong>Mission confiée :</strong> Mettre en place un réseau avec VLAN, routage inter-VLAN et interconnexion de plusieurs sites<br>
+                    <strong>Compétences visées :</strong> Compétence 1 (Administrer les réseaux et l'Internet)
+                </p>
+
+                <h3>Apprentissages Critiques (AC) concernés</h3>
+                <div class="ac-list">
+                    <ul>
+                        <li><strong>AC 1.1 :</strong> Configurer des équipements réseau (switches, routeurs)</li>
+                        <li><strong>AC 1.2 :</strong> Mettre en place des VLAN et du routage inter-VLAN</li>
+                        <li><strong>AC 1.3 :</strong> Documenter une architecture réseau</li>
+                    </ul>
+                </div>
+
+                <h3>Tâches réalisées</h3>
+                <ul>
+                    <li>Configuration de switches Cisco avec création de VLAN</li>
+                    <li>Mise en place du routage inter-VLAN sur routeur Cisco</li>
+                    <li>Interconnexion de plusieurs sites via liaisons WAN</li>
+                    <li>Tests de connectivité et validation de l'architecture</li>
+                    <li>Documentation complète du réseau (schémas, adressage, configurations)</li>
+                </ul>
+
+                <h3>Résultats obtenus / Preuves et traces</h3>
+                <div class="traces-section">
+                    <p><strong>Productions finales :</strong></p>
+                    <ul>
+                        <li>Réseau fonctionnel avec segmentation par VLAN</li>
+                        <li>Routage inter-VLAN opérationnel</li>
+                        <li>Documentation technique complète</li>
+                        <li>Schémas réseau détaillés</li>
+                    </ul>
+                    <p><strong>Impact :</strong> Ce projet m'a permis de comprendre concrètement le fonctionnement d'un réseau d'entreprise et de maîtriser les bases de la configuration Cisco.</p>
+                </div>
+
+                <h3>Autoévaluation</h3>
+                <div class="autoevaluation">
+                    <p><strong>Difficultés rencontrées :</strong></p>
+                    <p>La syntaxe des commandes Cisco IOS était nouvelle pour moi. J'ai également eu des difficultés à comprendre le concept de trunk entre switches.</p>
+
+                    <p><strong>Solutions mises en place :</strong></p>
+                    <p>J'ai consulté la documentation Cisco et pratiqué sur Packet Tracer pour bien comprendre les commandes. Les TP en binôme m'ont aussi permis d'échanger avec d'autres étudiants.</p>
+
+                    <p><strong>Apprentissages :</strong></p>
+                    <p>J'ai acquis une bonne compréhension des VLAN et du routage. Cette SAÉ m'a donné les bases essentielles pour travailler sur des équipements réseau professionnels.</p>
+
+                    <p><strong>Positionnement :</strong></p>
+                    <p>Je maîtrise les configurations de base des switches et routeurs Cisco. Je suis capable de mettre en place un réseau avec VLAN de manière autonome.</p>
+                </div>
+
+                <button class="back-button" onclick="showSection('sae')">← Retour aux SAÉ</button>
+            </div>
+        </section>
+
+        <!-- SAÉ 1.4 -->
+        <section id="sae14" class="section">
+            <div class="card">
+                <h2>SAÉ 1.4 - Créer son Portfolio</h2>
+
+                <h3>Description / Objectifs</h3>
+                <p>
+                    <strong>Contexte général :</strong> Création d'un site web portfolio pour présenter mon parcours et mes compétences<br>
+                    <strong>Mission confiée :</strong> Développer un site web responsive en HTML5/CSS3 présentant mes réalisations en BUT R&T<br>
+                    <strong>Compétences visées :</strong> Compétence 3 (Créer des outils et applications pour les R&T)
+                </p>
+
+                <h3>Apprentissages Critiques (AC) concernés</h3>
+                <div class="ac-list">
+                    <ul>
+                        <li><strong>AC 3.1 :</strong> Développer une application web (HTML5/CSS3)</li>
+                        <li><strong>AC 3.2 :</strong> Créer une interface utilisateur responsive</li>
+                        <li><strong>AC 3.3 :</strong> Structurer et organiser du contenu web</li>
+                    </ul>
+                </div>
+
+                <h3>Tâches réalisées</h3>
+                <ul>
+                    <li>Conception de la structure du site (wireframe, arborescence)</li>
+                    <li>Développement HTML5 avec sémantique appropriée</li>
+                    <li>Mise en forme CSS3 avec design moderne et responsive</li>
+                    <li>Intégration d'animations et transitions CSS</li>
+                    <li>Tests de compatibilité sur différents navigateurs et appareils</li>
+                </ul>
+
+                <h3>Résultats obtenus / Preuves et traces</h3>
+                <div class="traces-section">
+                    <p><strong>Productions finales :</strong></p>
+                    <ul>
+                        <li>Site web portfolio professionnel et responsive</li>
+                        <li>Design moderne avec dégradés et animations</li>
+                        <li>Navigation intuitive et expérience utilisateur soignée</li>
+                        <li>Code HTML/CSS propre et bien structuré</li>
+                    </ul>
+                </div>
+
+                <h3>Autoévaluation</h3>
+                <div class="autoevaluation">
+                    <p><strong>Difficultés rencontrées :</strong></p>
+                    <p>Le responsive design était un concept nouveau. J'ai eu des difficultés à faire fonctionner certaines animations CSS.</p>
+
+                    <p><strong>Solutions mises en place :</strong></p>
+                    <p>J'ai utilisé les media queries pour le responsive. Pour les animations, j'ai consulté des tutoriels et testé différentes approches.</p>
+
+                    <p><strong>Apprentissages :</strong></p>
+                    <p>J'ai développé mes compétences en développement web front-end. Cette SAÉ m'a appris l'importance de l'expérience utilisateur et du design responsive.</p>
+
+                    <p><strong>Positionnement :</strong></p>
+                    <p>Je suis capable de créer des sites web modernes et responsives. Je maîtrise HTML5/CSS3 pour des projets de complexité moyenne.</p>
+                </div>
+
+                <button class="back-button" onclick="showSection('sae')">← Retour aux SAÉ</button>
+            </div>
+        </section>
+
+        <!-- SAÉ 1.5 -->
+        <section id="sae15" class="section">
+            <div class="card">
+                <h2>SAÉ 1.5 - Traiter des données Python</h2>
+
+                <h3>Description / Objectifs</h3>
+                <p>
+                    <strong>Contexte général :</strong> Développement d'un programme Python pour récupérer et traiter des données via une API<br>
+                    <strong>Mission confiée :</strong> Créer un script Python qui interroge l'API SWAPI (Star Wars) et traite les données en JSON<br>
+                    <strong>Compétences visées :</strong> Compétence 3 (Créer des outils et applications pour les R&T)
+                </p>
+
+                <h3>Apprentissages Critiques (AC) concernés</h3>
+                <div class="ac-list">
+                    <ul>
+                        <li><strong>AC 3.1 :</strong> Programmer en Python</li>
+                        <li><strong>AC 3.2 :</strong> Interroger une API REST</li>
+                        <li><strong>AC 3.3 :</strong> Manipuler des données JSON</li>
+                        <li><strong>AC 3.4 :</strong> Traiter et formater des données</li>
+                    </ul>
+                </div>
+
+                <h3>Tâches réalisées</h3>
+                <ul>
+                    <li>Étude de la documentation de l'API SWAPI</li>
+                    <li>Développement d'un script Python avec la bibliothèque requests</li>
+                    <li>Récupération et parsing de données JSON</li>
+                    <li>Traitement et formatage des données extraites</li>
+                    <li>Affichage des résultats de manière structurée</li>
+                </ul>
+
+                <h3>Résultats obtenus / Preuves et traces</h3>
+                <div class="traces-section">
+                    <p><strong>Productions finales :</strong></p>
+                    <ul>
+                        <li>Script Python fonctionnel interrogeant l'API SWAPI</li>
+                        <li>Traitement correct des données JSON</li>
+                        <li>Affichage formaté et lisible des informations</li>
+                        <li>Code Python propre et commenté</li>
+                    </ul>
+                    <p><strong>Impact :</strong> Ce projet m'a familiarisé avec les APIs REST et le traitement de données, compétences essentielles pour de nombreux projets futurs.</p>
+                </div>
+
+                <h3>Autoévaluation</h3>
+                <div class="autoevaluation">
+                    <p><strong>Difficultés rencontrées :</strong></p>
+                    <p>La manipulation du JSON était nouvelle pour moi. J'ai également eu des difficultés à gérer les erreurs de connexion à l'API.</p>
+
+                    <p><strong>Solutions mises en place :</strong></p>
+                    <p>J'ai étudié la structure JSON retournée par l'API et utilisé des blocs try/except pour gérer les erreurs.</p>
+
+                    <p><strong>Apprentissages :</strong></p>
+                    <p>J'ai appris à utiliser des APIs REST en Python, à manipuler des données JSON et à structurer du code Python de manière professionnelle.</p>
+
+                    <p><strong>Positionnement :</strong></p>
+                    <p>Je suis capable d'interroger des APIs et de traiter des données en Python. Cette compétence sera utile pour automatiser des tâches réseau.</p>
+                </div>
+
+                <button class="back-button" onclick="showSection('sae')">← Retour aux SAÉ</button>
+            </div>
+        </section>
+
+        <!-- SAÉ 2.1 -->
+        <section id="sae21" class="section">
+            <div class="card">
+                <h2>SAÉ 2.1 - Interconnecter des équipements réseau</h2>
+
+                <h3>Description / Objectifs</h3>
+                <p>
+                    <strong>Contexte général :</strong> Administration d'un serveur Windows Server avec Active Directory et sécurisation SSH<br>
+                    <strong>Mission confiée :</strong> Mettre en place un serveur Windows Server, configurer Active Directory et sécuriser les accès SSH<br>
+                    <strong>Compétences visées :</strong> Compétence 1 (Administrer les réseaux et l'Internet), Compétence 4 (Sécurité)
+                </p>
+
+                <h3>Apprentissages Critiques (AC) concernés</h3>
+                <div class="ac-list">
+                    <ul>
+                        <li><strong>AC 1.1 :</strong> Installer et configurer Windows Server</li>
+                        <li><strong>AC 1.2 :</strong> Mettre en place Active Directory</li>
+                        <li><strong>AC 4.1 :</strong> Sécuriser les accès distants (SSH)</li>
+                        <li><strong>AC 4.2 :</strong> Gérer les authentifications et autorisations</li>
+                    </ul>
+                </div>
+
+                <h3>Tâches réalisées</h3>
+                <ul>
+                    <li>Installation et configuration de Windows Server 2019</li>
+                    <li>Mise en place d'Active Directory Domain Services (AD DS)</li>
+                    <li>Création d'utilisateurs, groupes et unités organisationnelles</li>
+                    <li>Configuration de la sécurité SSH avec authentification par clés</li>
+                    <li>Désactivation de l'authentification par mot de passe</li>
+                    <li>Mise en place de stratégies de groupe (GPO)</li>
+                </ul>
+
+                <h3>Résultats obtenus / Preuves et traces</h3>
+                <div class="traces-section">
+                    <p><strong>Productions finales :</strong></p>
+                    <ul>
+                        <li>Serveur Windows Server opérationnel avec AD</li>
+                        <li>Authentification SSH sécurisée par clés RSA</li>
+                        <li>Structure organisationnelle Active Directory cohérente</li>
+                        <li>Documentation des procédures de configuration</li>
+                    </ul>
+                    <div class="grade">Note : 17/20</div>
+                    <p><strong>Impact :</strong> Cette SAÉ m'a permis d'acquérir des compétences essentielles en administration Windows Server et en sécurisation des accès, directement applicables en entreprise.</p>
+                </div>
+
+                <h3>Autoévaluation</h3>
+                <div class="autoevaluation">
+                    <p><strong>Difficultés rencontrées :</strong></p>
+                    <p>La configuration de SSH sur Windows Server était complexe car moins documentée que sur Linux. J'ai également eu des difficultés avec la gestion des permissions dans Active Directory.</p>
+
+                    <p><strong>Solutions mises en place :</strong></p>
+                    <p>J'ai consulté la documentation Microsoft et des forums spécialisés. Pour Active Directory, j'ai fait des tests dans différentes configurations pour bien comprendre la hiérarchie.</p>
+
+                    <p><strong>Apprentissages :</strong></p>
+                    <p>Cette SAÉ m'a fait découvrir l'administration Windows Server et Active Directory, deux compétences très demandées en entreprise. J'ai aussi renforcé ma compréhension de la sécurité SSH.</p>
+
+                    <p><strong>Positionnement :</strong></p>
+                    <p>Je maîtrise les bases de l'administration Windows Server et la configuration sécurisée de SSH. Je suis capable de gérer un annuaire Active Directory simple.</p>
+                </div>
+
+                <button class="back-button" onclick="showSection('sae')">← Retour aux SAÉ</button>
+            </div>
+        </section>
+
+        <!-- SAÉ 2.2 -->
+        <section id="sae22" class="section">
+            <div class="card">
+                <h2>SAÉ 2.2 - Mesurer et caractériser un signal</h2>
+
+                <h3>Description / Objectifs</h3>
+                <p>
+                    <strong>Contexte général :</strong> Analyse spectrale de signaux de télécommunications (FM, 2G, 3G, 4G)<br>
+                    <strong>Mission confiée :</strong> Réaliser des mesures sur différents signaux radioélectriques, cartographier le signal 4G et analyser les résultats avec MATLAB<br>
+                    <strong>Compétences visées :</strong> Compétence 2 (Connecter les entreprises et les usagers)
+                </p>
+
+                <h3>Apprentissages Critiques (AC) concernés</h3>
+                <div class="ac-list">
+                    <ul>
+                        <li><strong>AC 2.1 :</strong> Mesurer et analyser des signaux radioélectriques</li>
+                        <li><strong>AC 2.2 :</strong> Comprendre les bandes de fréquences</li>
+                        <li><strong>AC 2.3 :</strong> Utiliser des outils de mesure professionnels</li>
+                        <li><strong>AC 2.4 :</strong> Traiter des données de mesure avec MATLAB</li>
+                    </ul>
+                </div>
+
+                <h3>Tâches réalisées</h3>
+                <ul>
+                    <li>Mesures sur signal FM : identification des sous-porteuses stéréo et RDS</li>
+                    <li>Analyse de la bande ISM (WiFi, Bluetooth) avec identification des canaux</li>
+                    <li>Mesures sur réseaux mobiles 2G (GSM 900MHz) et 3G</li>
+                    <li>Cartographie du signal 4G dans différentes zones de l'IUT</li>
+                    <li>Traitement des données avec MATLAB pour analyse spectrale</li>
+                    <li>Rédaction d'un rapport technique avec graphiques et interprétations</li>
+                </ul>
+
+                <h3>Résultats obtenus / Preuves et traces</h3>
+                <div class="traces-section">
+                    <p><strong>Productions finales :</strong></p>
+                    <ul>
+                        <li>Mesures spectrales complètes sur différentes technologies</li>
+                        <li>Cartographie 4G de plusieurs zones de l'IUT</li>
+                        <li>Scripts MATLAB d'analyse de données</li>
+                        <li>Rapport technique illustré avec graphiques</li>
+                    </ul>
+                    <div class="grade">Note : 17/20</div>
+                    <p><strong>Impact :</strong> Ce projet m'a fait découvrir le monde des télécommunications et m'a permis de comprendre concrètement le fonctionnement des réseaux sans fil.</p>
+                </div>
+
+                <h3>Autoévaluation</h3>
+                <div class="autoevaluation">
+                    <p><strong>Difficultés rencontrées :</strong></p>
+                    <p>L'utilisation des appareils de mesure était complexe au début. MATLAB était également nouveau pour moi et la syntaxe demandait de l'adaptation.</p>
+
+                    <p><strong>Solutions mises en place :</strong></p>
+                    <p>J'ai pris le temps de bien comprendre le fonctionnement des appareils avec les TP guidés. Pour MATLAB, j'ai consulté la documentation et fait des tests progressifs.</p>
+
+                    <p><strong>Apprentissages :</strong></p>
+                    <p>J'ai acquis une compréhension pratique des signaux radioélectriques et des réseaux mobiles. Cette SAÉ m'a ouvert les yeux sur la complexité technique des télécommunications modernes.</p>
+
+                    <p><strong>Positionnement :</strong></p>
+                    <p>Je suis capable de réaliser des mesures RF basiques et d'interpréter les résultats. Cette compétence peut être utile pour diagnostiquer des problèmes de couverture réseau.</p>
+                </div>
+
+                <button class="back-button" onclick="showSection('sae')">← Retour aux SAÉ</button>
+            </div>
+        </section>
+
+        <!-- SAÉ 2.3 -->
+        <section id="sae23" class="section">
+            <div class="card">
+                <h2>SAÉ 2.3 - Amélioration projet météorologique JavaScript</h2>
+
+                <h3>Description / Objectifs</h3>
+                <p>
+                    <strong>Contexte général :</strong> Amélioration d'une application web météo développée en JavaScript<br>
+                    <strong>Mission confiée :</strong> Ajouter de nouvelles fonctionnalités à l'application météo : choix du nombre de jours de prévisions et informations supplémentaires<br>
+                    <strong>Compétences visées :</strong> Compétence 3 (Créer des outils et applications pour les R&T)
+                </p>
+
+                <h3>Apprentissages Critiques (AC) concernés</h3>
+                <div class="ac-list">
+                    <ul>
+                        <li><strong>AC 3.1 :</strong> Développer une application JavaScript interactive</li>
+                        <li><strong>AC 3.2 :</strong> Intégrer des APIs externes (API Météo, API Découpage administratif)</li>
+                        <li><strong>AC 3.3 :</strong> Manipuler le DOM pour l'interface utilisateur</li>
+                        <li><strong>AC 3.4 :</strong> Gérer les événements utilisateur</li>
+                    </ul>
+                </div>
+
+                <h3>Tâches réalisées</h3>
+                <ul>
+                    <li>Ajout d'un sélecteur pour choisir le nombre de jours (1 à 7)</li>
+                    <li>Interface intuitive avec cases à cocher pour informations supplémentaires :
+                        <ul>
+                            <li>Latitude/Longitude décimales</li>
+                            <li>Cumul de pluie (mm)</li>
+                            <li>Vent moyen (km/h) et direction (°)</li>
+                        </ul>
+                    </li>
+                    <li>Intégration de l'API Découpage administratif pour la sélection de ville</li>
+                    <li>Amélioration de l'ergonomie et du design de l'interface</li>
+                    <li>Tests de fonctionnement et débogage</li>
+                </ul>
+
+                <h3>Résultats obtenus / Preuves et traces</h3>
+                <div class="traces-section">
+                    <p><strong>Productions finales :</strong></p>
+                    <ul>
+                        <li>Application web météo complète et fonctionnelle</li>
+                        <li>Interface utilisateur intuitive sans saisie manuelle</li>
+                        <li>Intégration réussie de deux APIs distinctes</li>
+                        <li>Code JavaScript modulaire et bien structuré</li>
+                    </ul>
+                    <a href="https://ewen-96.github.io/SAE23/" class="link-button" target="_blank">🌐 Voir le projet en ligne</a>
+                    <p style="margin-top: 1rem;"><strong>Impact :</strong> Ce projet démontre ma capacité à créer des applications web interactives utilisant des APIs externes, une compétence très valorisée dans le développement moderne.</p>
+                </div>
+
+                <h3>Autoévaluation</h3>
+                <div class="autoevaluation">
+                    <p><strong>Difficultés rencontrées :</strong></p>
+                    <p>La compréhension du fonctionnement des deux APIs (Météo et Découpage administratif) a demandé du temps. La manipulation du DOM JavaScript pour l'affichage dynamique était également un défi.</p>
+
+                    <p><strong>Solutions mises en place :</strong></p>
+                    <p>Pour parvenir à ce résultat, j'ai dû utiliser un peu d'IA mais il a fallu quand même que je comprenne le fonctionnement de l'API météo et l'API découpage administratif, ainsi que les bases de JavaScript pour réussir.</p>
+
+                    <p><strong>Apprentissages :</strong></p>
+                    <p>J'ai approfondi mes compétences en JavaScript, particulièrement sur la manipulation du DOM et les requêtes asynchrones. J'ai aussi appris à intégrer plusieurs APIs dans une même application.</p>
+
+                    <p><strong>Positionnement :</strong></p>
+                    <p>Je n'ai pas rencontré de grosse difficulté lors de cette SAÉ car il fallait juste faire une amélioration de ce que l'on avait déjà fait. Je suis désormais à l'aise avec le développement d'applications web utilisant des APIs.</p>
+                </div>
+
+                <button class="back-button" onclick="showSection('sae')">← Retour aux SAÉ</button>
+            </div>
+        </section>
+
+        <!-- SAÉ 2.4 -->
+        <section id="sae24" class="section">
+            <div class="card">
+                <h2>SAÉ 2.4 - Projet Intégratif S2 (Réseau + Télécoms + Maths + Anglais)</h2>
+
+                <h3>Description / Objectifs</h3>
+                <p>
+                    <strong>Contexte général :</strong> Projet pluridisciplinaire intégrant réseaux, télécommunications, mathématiques et anglais technique<br>
+                    <strong>Mission confiée :</strong> Réaliser une maquette réseau complexe, répondre à des QCM télécoms et maths, rédiger en anglais technique<br>
+                    <strong>Compétences visées :</strong> Compétences 1, 2, 3 et compétences transversales
+                </p>
+
+                <h3>Apprentissages Critiques (AC) concernés</h3>
+                <div class="ac-list">
+                    <ul>
+                        <li><strong>AC 1.1-1.3 :</strong> Configuration réseau avancée (GNS3, IPv6, WAN)</li>
+                        <li><strong>AC 2.1 :</strong> Mesures de signaux télécoms</li>
+                        <li><strong>Mathématiques :</strong> Méthodes numériques (Newton, dichotomie, suites de Sturm)</li>
+                        <li><strong>Anglais :</strong> Vocabulaire technique et rédaction professionnelle</li>
+                    </ul>
+                </div>
+
+                <h3>Tâches réalisées</h3>
+                <h4>🌐 Partie Réseau :</h4>
+                <ul>
+                    <li>Création d'une VM Debian en CLI</li>
+                    <li>Configuration de GNS3 server pour émulation réseau</li>
+                    <li>Simulation d'un réseau WAN reliant la box et le réseau physique</li>
+                    <li>Configuration de routeurs virtuels en IPv6</li>
+                    <li>Tests et validation de l'architecture</li>
+                </ul>
+
+                <h4>📡 Partie Télécoms :</h4>
+                <ul>
+                    <li>QCM sur mesures de signaux : Bande ISM, 3G GSM 900, AD</li>
+                    <li>Révision des TPs de mesures</li>
+                </ul>
+
+                <h4>📐 Partie Mathématiques :</h4>
+                <ul>
+                    <li>Exercices sur intervalles et division euclidienne</li>
+                    <li>Application des suites de Sturm</li>
+                    <li>Méthodes de Newton et dichotomie pour résolution d'équations</li>
+                </ul>
+
+                <h4>🇬🇧 Partie Anglais :</h4>
+                <ul>
+                    <li>Apprentissage du vocabulaire technique réseau en anglais</li>
+                    <li>Rédaction d'un document technique sur la SAÉ 2.4</li>
+                </ul>
+
+                <h3>Résultats obtenus / Preuves et traces</h3>
+                <div class="traces-section">
+                    <p><strong>Productions finales :</strong></p>
+                    <ul>
+                        <li>Maquette réseau avec VM Debian et GNS3</li>
+                        <li>Réseau WAN simulé fonctionnel</li>
+                        <li>Documentation technique en français et anglais</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">GNS3</span>
+                        <span class="tech-tag">Debian CLI</span>
+                        <span class="tech-tag">IPv6</span>
+                        <span class="tech-tag">MATLAB</span>
+                        <span class="tech-tag">Anglais Technique</span>
+                    </div>
+                </div>
+
+                <h3>Autoévaluation</h3>
+                <div class="autoevaluation">
+                    <p><strong>Projet Réseau - Difficultés rencontrées :</strong></p>
+                    <p>Pour le projet en groupe sur la maquette réseaux/systèmes, c'est globalement ce que l'on a fait dans la SAÉ 1.2 mais avec des ajouts et plus d'exigence. Je me suis occupé de la partie VM Debian CLI avec GNS3 qui simule un réseau WAN qui relie la box et le réseau physique. J'ai eu beaucoup de mal à créer la VM et mettre en place GNS3 server (ce qui permet d'émuler le réseau) car il y a énormément d'erreurs à débugger.</p>
+
+                    <p><strong>Solutions et apprentissages :</strong></p>
+                    <p>J'ai eu beaucoup de mal à configurer les routeurs virtuels dans le réseau virtuel car j'ai voulu faire compliqué en mettant tout en IPv6 alors que je ne savais pas faire. J'ai perdu énormément de temps et je n'ai pas pu finir à temps. Cette expérience m'a appris l'importance de la planification et de ne pas surestimer ses compétences.</p>
+
+                    <p><strong>Autres parties :</strong></p>
+                    <p>Pour les Télécoms, j'ai juste bien révisé le TP et j'ai réussi à avoir 11.5/20. Pour les Mathématiques, le prof nous a donné les sujets des deux ans passés que j'ai faits et réussis, mais lors de l'examen le sujet était bien plus dur que les ans passés avec beaucoup de très grandes valeurs qui mettent beaucoup de temps à calculer, donc j'ai dû me presser pour finir tous les exercices. L'anglais était relativement simple car je me suis bien préparé.</p>
+
+                    <p><strong>Positionnement :</strong></p>
+                    <p>Ce projet intégratif m'a permis de consolider mes acquis et de travailler en conditions réelles de projet. J'ai appris à gérer mon temps et à prioriser les tâches. Les difficultés rencontrées en IPv6 et GNS3 me motivent à approfondir ces sujets pour les maîtriser.</p>
+                </div>
+
+                <button class="back-button" onclick="showSection('sae')">← Retour aux SAÉ</button>
+            </div>
+        </section>
+
+        <!-- SECTION BILAN S1 -->
+        <section id="bilan-s1" class="section">
+            <div class="card">
+                <h2>Bilan Semestre 1</h2>
+
+                <h3>Compétence 1 : Administrer les réseaux et l'Internet</h3>
+                <div class="ac-list">
+                    <h4>Apprentissages Critiques travaillés :</h4>
+                    <ul>
+                        <li><strong>AC 1.1 :</strong> Configuration d'équipements réseau (switches, routeurs Cisco) - Niveau acquis</li>
+                        <li><strong>AC 1.2 :</strong> Mise en place de VLAN et routage inter-VLAN - Niveau en cours d'acquisition</li>
+                        <li><strong>AC 1.3 :</strong> Documentation d'architecture réseau - Niveau acquis</li>
+                    </ul>
+                    <h4>SAÉ concernées :</h4>
+                    <p>SAÉ 1.2 - Découvrir un dispositif réseau</p>
+                    <h4>Synthèse :</h4>
+                    <p><strong>Points forts :</strong> Bonne compréhension des concepts réseau de base, maîtrise de la syntaxe Cisco IOS pour configurations simples.</p>
+                    <p><strong>Difficultés :</strong> Complexité croissante des configurations, nécessité de mieux maîtriser le troubleshooting.</p>
+                    <p><strong>Axes de progression :</strong> Approfondir IPv6, pratiquer davantage sur GNS3, améliorer mes compétences en diagnostic réseau.</p>
+                </div>
+
+                <h3>Compétence 2 : Connecter les entreprises et les usagers</h3>
+                <div class="ac-list">
+                    <h4>Apprentissages Critiques travaillés :</h4>
+                    <ul>
+                        <li><strong>AC 2.1 :</strong> Sensibilisation aux télécommunications - Niveau en cours d'acquisition</li>
+                    </ul>
+                    <h4>Synthèse :</h4>
+                    <p>Au S1, cette compétence a été abordée de manière théorique. La mise en pratique interviendra au S2 avec la SAÉ 2.2.</p>
+                </div>
+
+                <h3>Compétence 3 : Créer des outils et applications informatiques pour les R&T</h3>
+                <div class="ac-list">
+                    <h4>Apprentissages Critiques travaillés :</h4>
+                    <ul>
+                        <li><strong>AC 3.1 :</strong> Développement web (HTML5/CSS3) - Niveau acquis</li>
+                        <li><strong>AC 3.2 :</strong> Programmation Python avec APIs - Niveau en cours d'acquisition</li>
+                        <li><strong>AC 3.3 :</strong> Manipulation de données JSON - Niveau acquis</li>
+                    </ul>
+                    <h4>SAÉ concernées :</h4>
+                    <p>SAÉ 1.4 (Portfolio HTML/CSS), SAÉ 1.5 (Python + API SWAPI)</p>
+                    <h4>Synthèse :</h4>
+                    <p><strong>Points forts :</strong> Bonne appréhension du développement web front-end, capacité à créer des interfaces modernes et responsives.</p>
+                    <p><strong>Difficultés :</strong> Python était nouveau pour moi, la gestion des APIs demande encore de la pratique.</p>
+                    <p><strong>Axes de progression :</strong> Approfondir Python, développer des projets plus complexes intégrant plusieurs APIs.</p>
+                </div>
+
+                <h3>Compétence 4 : Administrer un système d'information sécurisé</h3>
+                <div class="ac-list">
+                    <h4>Apprentissages Critiques travaillés :</h4>
+                    <ul>
+                        <li><strong>AC 4.1 :</strong> Sensibilisation à la cybersécurité (MOOC ANSSI) - Niveau acquis</li>
+                        <li><strong>AC 4.2 :</strong> Compréhension des enjeux de sécurité - Niveau acquis</li>
+                    </ul>
+                    <h4>SAÉ concernées :</h4>
+                    <p>SAÉ 1.1 - MOOC ANSSI SecNumAcadémie</p>
+                    <h4>Synthèse :</h4>
+                    <p><strong>Points forts :</strong> Bonne sensibilisation aux enjeux de cybersécurité, acquisition de bonnes pratiques.</p>
+                    <p><strong>Axes de progression :</strong> Mettre en pratique ces connaissances sur des projets concrets (ce qui sera fait au S2 avec SSH).</p>
+                </div>
+
+                <h3>Réflexion globale du semestre</h3>
+                <p>
+                    Le premier semestre m'a permis de découvrir les bases des réseaux et télécommunications. J'ai particulièrement apprécié 
+                    la partie développement web et Python, qui complète bien ma formation technique réseau. La SAÉ 1.2 sur les réseaux Cisco 
+                    m'a fait comprendre la complexité de l'administration réseau et m'a donné envie d'approfondir ce domaine.
+                </p>
+                <p>
+                    <strong>Objectifs pour le S2 :</strong> Consolider mes acquis réseau, découvrir les télécommunications pratiques, 
+                    approfondir mes compétences en sécurité avec Windows Server et SSH.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION BILAN S2 -->
+        <section id="bilan-s2" class="section">
+            <div class="card">
+                <h2>Bilan Semestre 2</h2>
+
+                <h3>Compétence 1 : Administrer les réseaux et l'Internet</h3>
+                <div class="ac-list">
+                    <h4>Apprentissages Critiques travaillés :</h4>
+                    <ul>
+                        <li><strong>AC 1.1 :</strong> Administration Windows Server et Active Directory - Niveau acquis</li>
+                        <li><strong>AC 1.2 :</strong> Configuration avancée réseau (GNS3, IPv6) - Niveau en cours d'acquisition</li>
+                        <li><strong>AC 1.3 :</strong> Émulation réseau avec GNS3 - Niveau en cours d'acquisition</li>
+                    </ul>
+                    <h4>SAÉ concernées :</h4>
+                    <p>SAÉ 2.1 (Windows Server + AD), SAÉ 2.4 (GNS3 + Debian + IPv6)</p>
+                    <h4>Synthèse :</h4>
+                    <p><strong>Points forts :</strong> Bonne maîtrise de Windows Server et Active Directory (17/20 à la SAÉ 2.1). Capacité à mettre en place des services d'authentification sécurisés.</p>
+                    <p><strong>Difficultés :</strong> IPv6 et GNS3 demandent encore beaucoup de pratique. J'ai sous-estimé la complexité de la SAÉ 2.4.</p>
+                    <p><strong>Axes de progression :</strong> Approfondir GNS3 et IPv6, pratiquer davantage l'émulation réseau, améliorer ma gestion du temps sur les projets complexes.</p>
+                </div>
+
+                <h3>Compétence 2 : Connecter les entreprises et les usagers</h3>
+                <div class="ac-list">
+                    <h4>Apprentissages Critiques travaillés :</h4>
+                    <ul>
+                        <li><strong>AC 2.1 :</strong> Analyse spectrale et mesures radioélectriques - Niveau acquis</li>
+                        <li><strong>AC 2.2 :</strong> Compréhension des réseaux mobiles 2G/3G/4G - Niveau acquis</li>
+                        <li><strong>AC 2.3 :</strong> Utilisation d'outils de mesure professionnels - Niveau acquis</li>
+                    </ul>
+                    <h4>SAÉ concernées :</h4>
+                    <p>SAÉ 2.2 (Mesures RF et télécoms), SAÉ 2.4 (QCM télécoms)</p>
+                    <h4>Synthèse :</h4>
+                    <p><strong>Points forts :</strong> Très bonne note à la SAÉ 2.2 (17/20), bonne compréhension des phénomènes RF et des réseaux mobiles.</p>
+                    <p><strong>Apprentissages :</strong> Cette compétence m'a ouvert les yeux sur la complexité technique des télécommunications modernes. MATLAB a été un bon outil pour visualiser et analyser les données.</p>
+                    <p><strong>Axes de progression :</strong> Continuer à pratiquer MATLAB, approfondir la compréhension des protocoles 5G.</p>
+                </div>
+
+                <h3>Compétence 3 : Créer des outils et applications informatiques pour les R&T</h3>
+                <div class="ac-list">
+                    <h4>Apprentissages Critiques travaillés :</h4>
+                    <ul>
+                        <li><strong>AC 3.1 :</strong> Développement JavaScript avancé - Niveau acquis</li>
+                        <li><strong>AC 3.2 :</strong> Intégration d'APIs multiples - Niveau acquis</li>
+                        <li><strong>AC 3.3 :</strong> Manipulation du DOM - Niveau acquis</li>
+                    </ul>
+                    <h4>SAÉ concernées :</h4>
+                    <p>SAÉ 2.3 (Application météo JavaScript)</p>
+                    <h4>Synthèse :</h4>
+                    <p><strong>Points forts :</strong> Maîtrise de JavaScript et des APIs REST. Capacité à créer des applications web interactives et professionnelles.</p>
+                    <p><strong>Apprentissages :</strong> Cette SAÉ a consolidé mes compétences en développement web. L'utilisation d'IA m'a aidé mais j'ai dû comprendre le code pour l'adapter.</p>
+                    <p><strong>Axes de progression :</strong> Explorer des frameworks JavaScript (React, Vue.js) pour créer des applications encore plus complexes.</p>
+                </div>
+
+                <h3>Compétence 4 : Administrer un système d'information sécurisé</h3>
+                <div class="ac-list">
+                    <h4>Apprentissages Critiques travaillés :</h4>
+                    <ul>
+                        <li><strong>AC 4.1 :</strong> Sécurisation SSH avec authentification par clés - Niveau acquis</li>
+                        <li><strong>AC 4.2 :</strong> Gestion des accès et authentification (AD) - Niveau acquis</li>
+                        <li><strong>AC 4.3 :</strong> Application des bonnes pratiques de sécurité - Niveau acquis</li>
+                    </ul>
+                    <h4>SAÉ concernées :</h4>
+                    <p>SAÉ 2.1 (SSH + Windows Server)</p>
+                    <h4>Synthèse :</h4>
+                    <p><strong>Points forts :</strong> Excellente note (17/20), bonne maîtrise de la sécurisation SSH et de la gestion AD.</p>
+                    <p><strong>Apprentissages :</strong> J'ai compris l'importance de la sécurité dès la conception. L'authentification par clés SSH est maintenant un réflexe.</p>
+                    <p><strong>Axes de progression :</strong> Approfondir la cybersécurité (pare-feu, IDS/IPS), étudier les certifications de sécurité.</p>
+                </div>
+
+                <h3>Réflexion globale du semestre</h3>
+                <p>
+                    Le S2 a été beaucoup plus intense et technique que le S1. J'ai particulièrement progressé en administration serveur (Windows Server) 
+                    et en sécurité (SSH). La découverte des télécommunications avec la SAÉ 2.2 a été passionnante et m'a ouvert de nouvelles perspectives.
+                </p>
+                <p>
+                    <strong>Points d'amélioration identifiés :</strong> Je dois mieux gérer mon temps sur les projets complexes comme la SAÉ 2.4. 
+                    J'ai tendance à vouloir faire trop compliqué (IPv6 alors que je ne maîtrisais pas) au lieu de consolider d'abord les bases.
+                </p>
+                <p>
+                    <strong>Compétences consolidées :</strong> Développement web, administration Windows Server, sécurité SSH, télécommunications.
+                </p>
+                <p>
+                    <strong>Objectifs pour le S3 :</strong> Approfondir GNS3 et IPv6, continuer à développer mes compétences en sécurité, 
+                    explorer l'automatisation réseau avec Python.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025-2026 - Portfolio BUT Réseaux & Télécommunications - Ewen Bros</p>
+        <p>IUT de Caen - Normandie</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Masquer toutes les sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Désactiver tous les liens nav
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Afficher la section demandée
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                
+                // Activer le lien nav correspondant
+                const correspondingLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+                if (correspondingLink) {
+                    correspondingLink.classList.add('active');
+                }
+                
+                // Scroll vers le haut
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Gérer le clic sur les liens de navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    showSection(targetId);
+                });
+            });
+
+            // Activer la section d'accueil par défaut
+            showSection('accueil');
+        });
+    </script>
+</body>
+</html>
