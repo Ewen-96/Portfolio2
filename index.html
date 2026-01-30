@@ -10,6 +10,16 @@
             padding: 0;
             box-sizing: border-box;
         }
+        .card ul {
+        margin-left: 2rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        }
+
+        .card li {
+            margin: 0.5rem 0;
+            list-style-type: disc;
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -109,6 +119,18 @@
             color: #555;
             margin-top: 1rem;
             margin-bottom: 0.5rem;
+        }
+
+        /* Ajoutez ces nouvelles règles ici */
+        .card ul {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card li {
+            margin: 0.5rem 0;
+            list-style-type: disc;
         }
 
         .photo-container {
@@ -336,6 +358,8 @@
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
+        
+
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -379,19 +403,7 @@
         <section id="accueil" class="section active">
             <div class="card">
                 <h2>Bienvenue sur mon Portfolio</h2>
-                
-                <div class="photo-container">
-                    <div class="photo-placeholder">
-                        EB
-                    </div>
-                </div>
-
-                <h3>Qui suis-je ?</h3>
-                <p>
-                    Je m'appelle <strong>Ewen Bros</strong>, étudiant en <strong>BUT Réseaux et Télécommunications</strong> à l'IUT de Caen. 
-                    Passionné par les technologies réseau, la cybersécurité et le développement d'applications, je développe mes compétences 
-                    à travers des projets pratiques et des situations professionnelles concrètes.
-                </p>
+            
 
                 <div style="text-align: center; margin: 1.5rem 0;">
                     <span class="badge">🎓 BUT R&T</span>
@@ -469,10 +481,10 @@
                     <span class="tech-tag">MATLAB</span>
                 </div>
 
-                <h3>Évolutions majeures observées</h3>
+                <h3>Évolutions</h3>
                 <p>
                     Depuis le début de ma formation, j'ai considérablement progressé dans ma capacité à comprendre et configurer des architectures réseau complexes. 
-                    La transition du S1 au S2 m'a permis de passer d'une approche théorique à une mise en pratique concrète sur des équipements professionnels. 
+                    J'aie pue de passer d'une approche théorique à une mise en pratique concrète sur des équipements professionnels. 
                     J'ai notamment développé mes compétences en :
                 </p>
                 <ul>
@@ -497,14 +509,6 @@
                     Je suis particulièrement attiré par les environnements techniques qui combinent expertise réseau et développement logiciel, 
                     permettant d'automatiser et d'optimiser la gestion des infrastructures.
                 </p>
-
-                <h3>Domaines d'intérêt technologique</h3>
-                <ul>
-                    <li>Technologies réseau : VLAN, routage, IPv6, SDN (Software-Defined Networking)</li>
-                    <li>Cybersécurité : firewalls, IDS/IPS, authentification, cryptographie</li>
-                    <li>Virtualisation et cloud : GNS3, Docker, services cloud</li>
-                    <li>Automatisation : scripts Python, APIs REST, monitoring</li>
-                </ul>
             </div>
         </section>
 
@@ -600,21 +604,21 @@
                     <div class="sae-list">
                     <div class="sae-card-mini" onclick="showSection('sae31')">
                         <h3>SAÉ 3.1</h3>
-                        <p class="semester">Titre de votre SAÉ 3.1</p>
+                        <p class="semester">Déploiement d'un réseau multi-sites</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">Technologie 1</span>
-                            <span class="tech-tag">Technologie 2</span>
-                            <span class="tech-tag">Technologie 3</span>
+                            <span class="tech-tag">GNS3</span>
+                            <span class="tech-tag">fibre OADM</span>
+                            <span class="tech-tag">CISCO</span>
                         </div>
                     </div>
 
                     <div class="sae-card-mini" onclick="showSection('sae32')">
                         <h3>SAÉ 3.2</h3>
-                        <p class="semester">Titre de votre SAÉ 3.2</p>
+                        <p class="semester">Concevoir un réseau informatique et Pentesting</p>
                         <div class="tech-stack">
-                            <span class="tech-tag">Technologie 1</span>
-                            <span class="tech-tag">Technologie 2</span>
-                            <span class="tech-tag">Technologie 3</span>
+                            <span class="tech-tag">HSRP</span>
+                            <span class="tech-tag">ARP</span>
+                            <span class="tech-tag">Proxmox</span>
                         </div>
                     </div>
                 </div>
@@ -650,7 +654,7 @@
                     <li>Étude des bonnes pratiques de sécurité (mots de passe, mises à jour, sauvegarde)</li>
                 </ul>
 
-                <h3>Résultats obtenus / Preuves et traces</h3>
+                <h3>Résultats  obtenus </h3>
                 <div class="traces-section">
                     <p><strong>Productions finales :</strong></p>
                     <ul>
@@ -710,7 +714,7 @@
                     <li>Documentation complète du réseau (schémas, adressage, configurations)</li>
                 </ul>
 
-                <h3>Résultats obtenus / Preuves et traces</h3>
+                <h3>Résultats  obtenus </h3>
                 <div class="traces-section">
                     <p><strong>Productions finales :</strong></p>
                     <ul>
@@ -771,7 +775,7 @@
                     <li>Tests de compatibilité sur différents navigateurs et appareils</li>
                 </ul>
 
-                <h3>Résultats obtenus / Preuves et traces</h3>
+                <h3>Résultats  obtenus </h3>
                 <div class="traces-section">
                     <p><strong>Productions finales :</strong></p>
                     <ul>
@@ -829,7 +833,7 @@
                     <li>Affichage des résultats de manière structurée</li>
                 </ul>
 
-                <h3>Résultats obtenus / Preuves et traces</h3>
+                <h3>Résultats  obtenus </h3>
                 <div class="traces-section">
                     <p><strong>Productions finales :</strong></p>
                     <ul>
@@ -892,7 +896,7 @@
                     <li>Mise en place de stratégies de groupe (GPO)</li>
                 </ul>
 
-                <h3>Résultats obtenus / Preuves et traces</h3>
+                <h3>Résultats  obtenus </h3>
                 <div class="traces-section">
                     <p><strong>Productions finales :</strong></p>
                     <ul>
@@ -956,7 +960,7 @@
                     <li>Rédaction d'un rapport technique avec graphiques et interprétations</li>
                 </ul>
 
-                <h3>Résultats obtenus / Preuves et traces</h3>
+                <h3>Résultats  obtenus </h3>
                 <div class="traces-section">
                     <p><strong>Productions finales :</strong></p>
                     <ul>
@@ -1025,7 +1029,7 @@
                     <li>Tests de fonctionnement et débogage</li>
                 </ul>
 
-                <h3>Résultats obtenus / Preuves et traces</h3>
+                <h3>Résultats  obtenus </h3>
                 <div class="traces-section">
                     <p><strong>Productions finales :</strong></p>
                     <ul>
@@ -1080,7 +1084,7 @@
                 </div>
 
                 <h3>Tâches réalisées</h3>
-                <h4>🌐 Partie Réseau :</h4>
+                <h4>Partie Réseau :</h4>
                 <ul>
                     <li>Création d'une VM Debian en CLI</li>
                     <li>Configuration de GNS3 server pour émulation réseau</li>
@@ -1089,26 +1093,26 @@
                     <li>Tests et validation de l'architecture</li>
                 </ul>
 
-                <h4>📡 Partie Télécoms :</h4>
+                <h4>Partie Télécoms :</h4>
                 <ul>
                     <li>QCM sur mesures de signaux : Bande ISM, 3G GSM 900, AD</li>
                     <li>Révision des TPs de mesures</li>
                 </ul>
 
-                <h4>📐 Partie Mathématiques :</h4>
+                <h4>Partie Mathématiques :</h4>
                 <ul>
                     <li>Exercices sur intervalles et division euclidienne</li>
                     <li>Application des suites de Sturm</li>
                     <li>Méthodes de Newton et dichotomie pour résolution d'équations</li>
                 </ul>
 
-                <h4>🇬🇧 Partie Anglais :</h4>
+                <h4>Partie Anglais :</h4>
                 <ul>
                     <li>Apprentissage du vocabulaire technique réseau en anglais</li>
                     <li>Rédaction d'un document technique sur la SAÉ 2.4</li>
                 </ul>
 
-                <h3>Résultats obtenus / Preuves et traces</h3>
+                <h3>Résultats  obtenus </h3>
                 <div class="traces-section">
                     <p><strong>Productions finales :</strong></p>
                     <ul>
@@ -1146,42 +1150,57 @@
 
         <section id="sae31" class="section">
             <div class="card">
-        <h2>SAÉ 3.1 - [Titre de votre SAÉ]</h2>
+        <h2>SAÉ 3.1 - Déploiement d'un réseau multi-sites</h2>
 
         <h3>Description / Objectifs</h3>
         <p>
-            <strong>Contexte général :</strong> [Décrivez le contexte]<br>
-            <strong>Mission confiée :</strong> [Décrivez la mission]<br>
-            <strong>Compétences visées :</strong> [Compétence(s) principale(s)]
+            <strong>Contexte général :</strong>Notre mission était de concevoir et déployer l'infrastructure réseau pour un client, qui possède un siège à Caen et une usine à Lyon.<br>
+            
+            <strong>Le projet consiste à :</strong>
+            <ul>
+                <li>Interconnecter les sites en simulant un cœur de réseau (Backbone) sur GNS3 avec des routeurs Cisco.</li>
+                <li>Mettre en place le routage via le protocole OSPF, en découpant le réseau en différentes zones (aires) pour assurer la communication entre les sites et l'accès à Internet.</li>
+                <li>Gérer la transmission physique en utilisant une boucle de fibre optique (CWDM) où chaque client utilise une longueur d'onde spécifique.</li>
+                <li>Sécuriser le réseau local en créant des VLANs pour isoler les services (Production, RH) tout en permettant aux administrateurs de garder la main sur l'ensemble.</li>
+            </ul> 
+            <strong>Mission confiée :</strong> Responcable de la partie "Backbone" de la maquette<br>
+            <strong>Compétences visées :</strong> Connecter les entreprises et les usagers (RT2).
         </p>
 
         <h3>Apprentissages Critiques (AC) concernés</h3>
         <div class="ac-list">
             <ul>
-                <li><strong>AC X.X :</strong> [Description de l'apprentissage critique]</li>
-                <li><strong>AC X.X :</strong> [Description de l'apprentissage critique]</li>
-                <li><strong>AC X.X :</strong> [Description de l'apprentissage critique]</li>
+                <li><strong>AC22.01 :</strong> Déployer et caractériser des systèmes de transmissions complexes via la simulation du cœur de réseau GNS3</li>
+                <li><strong>AC22.03 :</strong>Mettre en place une connexion multi-site via un réseau opérateur. </li>
+                <li><strong>AC22.04 :</strong> Administrer les réseaux d'accès des opérateurs.</li>
             </ul>
         </div>
 
         <h3>Tâches réalisées</h3>
         <ul>
-            <li>[Tâche 1]</li>
-            <li>[Tâche 2]</li>
-            <li>[Tâche 3]</li>
-            <li>[Tâche 4]</li>
+            <li>Simulation du Backbone : Mise en place de l'architecture cœur de réseau sur GNS3 en utilisant des routeurs virtuels Cisco IOL</li>
+            <li>Configuration du routage dynamique : Nous avons un réseaux backbone constitué de 4 aires en comptant l'aire 0.
+Les aires 2 et 3 contiennent les routeurs de connexion avec les deux sites de Lyon et de Caen.
+L'aire 1 pour la connexion à internet
+Aire 0 (backbone) constitué de 3 routeurs</li>
+            <li>Interconnexion IP :On a simulé un plan ip a distribuer à partir de 24.8.0.0/16
+Nous n'avons pas chercher à nous compliquer la tâche pour faire plus réaliste et avons utilisé ce plan ip:
+Chaque lien est en /31. Chaque lien d'une aire porte le numéro de l'aire.
+exemple: aire 1: 24.8.1.X ect...
+Pour les liens inter-aires: 24.8.5.X</li>
+            <li>Sortie Internet : Configuration et redistribution de la route par défaut via les Box Orange vers l'ensemble du réseau OSPF.</li>
         </ul>
 
-        <h3>Résultats obtenus / Preuves et traces</h3>
+        <h3>Résultats  obtenus </h3>
         <div class="traces-section">
             <p><strong>Productions finales :</strong></p>
             <ul>
-                <li>[Production 1]</li>
-                <li>[Production 2]</li>
-                <li>[Production 3]</li>
+                <li>Le schéma du backbone sur GNS3 chaque couleur représente une aire différente </li>
+                <img src="Diagramme sans nom.drawio.png" alt="Schéma du Backbone GNS3" width="600">
+
             </ul>
-            <div class="grade">Note : XX/20</div>
-            <p><strong>Impact :</strong> [Décrivez l'impact de ce projet]</p>
+            <div class="grade">Note : 14/20</div>
+            <p><strong>Impact :</strong> Ce projet a permis de fournir une infrastructure réseau isolée et fonctionnelle, garantissant la communication fluide entre les sites distants tout en assurant une sortie internet centralisée et redondée.</p>
             
             <!-- Si vous avez un lien vers un projet en ligne, décommentez : -->
             <!-- <a href="VOTRE_LIEN" class="link-button" target="_blank">🌐 Voir le projet</a> -->
@@ -1190,16 +1209,13 @@
         <h3>Autoévaluation</h3>
         <div class="autoevaluation">
             <p><strong>Difficultés rencontrées :</strong></p>
-            <p>[Décrivez les difficultés]</p>
-
-            <p><strong>Solutions mises en place :</strong></p>
-            <p>[Décrivez les solutions]</p>
+            <p>Il n'y avait pas de difficultés particulières car on a déjà beaucoup utilisé GNS3 pour simuler des réseaux et le routage dynamique via OSPF a été vu en première année donc d'un point de vue technique il n'y avait pas de problème.</p>
 
             <p><strong>Apprentissages :</strong></p>
-            <p>[Décrivez ce que vous avez appris]</p>
+            <p>J'ai approfondi ma maîtrise de la segmentation OSPF en multi-aires, ce qui est essentiel pour la montée en charge d'un réseau opérateur. J'ai aussi appris à gérer une connextion entre un backbone virtuel (GNS3) et un réseau physique</p>
 
             <p><strong>Positionnement :</strong></p>
-            <p>[Évaluez votre niveau de maîtrise]</p>
+            <p>Bien que je considère je maitrises les concepts de base , la gestion de réseaux opérateurs à très grande échelle reste un axe de progression.</p>
         </div>
 
         <button class="back-button" onclick="showSection('sae')">← Retour aux SAÉ</button>
@@ -1209,43 +1225,62 @@
     <!-- SAÉ 3.2 -->
     <section id="sae32" class="section">
         <div class="card">
-            <h2>SAÉ 3.2 - [Titre de votre SAÉ]</h2>
+            <h2>SAÉ 3.2 - Concevoir un réseau informatique et Pentesting </h2>
 
-            <h3>Description / Objectifs</h3>
+            <h3>Description </h3>
             <p>
-                <strong>Contexte général :</strong> [Décrivez le contexte]<br>
-                <strong>Mission confiée :</strong> [Décrivez la mission]<br>
+                <strong>Le projet s'est déroulé en deux phases :</strong> 
+                <ul>
+                    <li><strong>Création de la maquette:</strong>On a mise en œuvre d'une infrastructure multi-sites  répondant à un cahier des charges d'entreprise.
+                    <li><strong>Pentesting :</strong> Audit de sécurité visant à identifier et exploiter les vulnérabilités de l'infrastructure mise en place.
+                </ul>
+                <strong>Mission confiée :</strong> En charge de la configuration du routeur de bordure (Gateway) vers l'extérieur (Box ADSL) et de l'interconnexion entre le cœur de réseau (Switch) et l'hyperviseur Proxmox.<br></li>
                 <strong>Compétences visées :</strong> [Compétence(s) principale(s)]
             </p>
 
             <h3>Apprentissages Critiques (AC) concernés</h3>
             <div class="ac-list">
                 <ul>
-                    <li><strong>AC X.X :</strong> [Description de l'apprentissage critique]</li>
-                    <li><strong>AC X.X :</strong> [Description de l'apprentissage critique]</li>
-                    <li><strong>AC X.X :</strong> [Description de l'apprentissage critique]</li>
+                    <li><strong>AC24.02Cyber :</strong> Mettre en œuvre les outils fondamentaux de sécurisation d'une infrastructure.</li>
+                    <li><strong>AC24.05Cyber :</strong> Connaître les différents types d'attaque.</li>
+                    <li><strong>AC25.02Cyber :</strong> Prendre en main des outils de test de pénétration réseau/système.</li>
                 </ul>
             </div>
 
             <h3>Tâches réalisées</h3>
+            
+            <strong>Partie 1 : Création de la maquette (Infrastructure)</strong>
             <ul>
-                <li>[Tâche 1]</li>
-                <li>[Tâche 2]</li>
-                <li>[Tâche 3]</li>
-                <li>[Tâche 4]</li>
+                <li>Configuration de l'accès WAN : Paramétrage du routeur de sortie pour la connexion avec la Box Orange.</li>
+                <li>Liaison Proxmox : Configuration du switch pour assurer la connectivité de l'hyperviseur hébergeant les serveurs DNS et LDAP.</li>
+            </ul>
+            <strong>Partie 2 : Pentesting (Audit de sécurité)</strong>
+            <ul>
+                <li>HSRP Takeover : Détournement de la passerelle par défaut en manipulant les priorités du protocole de redondance pour intercepter le trafic.</li>
+                <li>ARP Poisoning : Réalisation d'une attaque Man-in-the-Middle pour capturer les flux entre les postes clients et les serveurs.</li>
             </ul>
 
-            <h3>Résultats obtenus / Preuves et traces</h3>
+            <h3>Résultats  obtenus </h3>
             <div class="traces-section">
                 <p><strong>Productions finales :</strong></p>
                 <ul>
-                    <li>[Production 1]</li>
-                    <li>[Production 2]</li>
-                    <li>[Production 3]</li>
+                    <li>Le Schéma-Physique de la maquette avec les différents VLAN </li>
+                    <img src="G11-Schéma-Physique.jpg" alt="Schéma physique" width="600">
+                    
+                    <li>Le Schéma-Logique de la maquette </li>
+                    <img src="G11-Schéma-Logique(1).png" alt="Schéma logique" width="600">
+
+                    <li>Rapport d'audit de sécurité détaillant les méthodes d'exploitation HSRP et ARP.</li>
+                    <li>
+                   
+                        <a href="Pentest.pdf" target="_blank">
+                            📄 Consulter le Rapport d'audit de sécurité (PDF)
+                        </a>
+                    </li>
+                    
                 </ul>
-                <div class="grade">Note : XX/20</div>
-                <p><strong>Impact :</strong> [Décrivez l'impact de ce projet]</p>
-                
+                <div class="grade">Note : 15.73/20</div>
+                <p><strong>Impact :</strong> Ce projet a été déterminant pour comprendre qu'une infrastructure réseau n'est jamais figée : elle doit être fonctionnelle physiquement, mais aussi résiliente face aux attaques. J'ai pu valider ma capacité à diagnostiquer des pannes matérielles réelles et à identifier des failles critiques (Layer 2) qui peuvent compromettre tout un système d'information.</p>                
                 <!-- Si vous avez un lien vers un projet en ligne, décommentez : -->
                 <!-- <a href="VOTRE_LIEN" class="link-button" target="_blank">🌐 Voir le projet</a> -->
             </div>
@@ -1253,16 +1288,16 @@
             <h3>Autoévaluation</h3>
             <div class="autoevaluation">
                 <p><strong>Difficultés rencontrées :</strong></p>
-                <p>[Décrivez les difficultés]</p>
+                <p>Lors de la phase 1, j'ai perdu du temps à cause d'une mauvaise configuration IP sur l'interface WAN et d'une prise murale non fonctionnelle. Cela m'a forcé à être plus rigoureux sur les tests de connectivité de base.</p>
 
                 <p><strong>Solutions mises en place :</strong></p>
-                <p>[Décrivez les solutions]</p>
+                <strong>Dépannage réseau :</strong> Suite à l'échec de la connexion WAN, j'ai procédé à un test de continuité sur la prise murale. Après avoir identifié le défaut, j'ai migré la connexion sur un autre port et corrigé le plan d'adressage IP sur l'interface du routeur pour correspondre à la passerelle de la Box.
 
                 <p><strong>Apprentissages :</strong></p>
-                <p>[Décrivez ce que vous avez appris]</p>
+                <p>J'ai compris que la sécurité ne dépend pas que des mots de passe : des protocoles comme HSRP ou ARP, s'ils ne sont pas authentifiés, permettent de prendre le contrôle total du flux de données.</p>
 
                 <p><strong>Positionnement :</strong></p>
-                <p>[Évaluez votre niveau de maîtrise]</p>
+                <p>Je suis capable de déployer une infrastructure et de tester sa résistance aux attaques de niveau 2.</p>
             </div>
 
             <button class="back-button" onclick="showSection('sae')">← Retour aux SAÉ</button>
@@ -1300,7 +1335,7 @@
                     <p>Au S1, cette compétence a été abordée de manière théorique. La mise en pratique interviendra au S2 avec la SAÉ 2.2.</p>
                 </div>
 
-                <h3>Compétence 3 : Créer des outils et applications informatiques pour les R&T</h3>
+                <h3>Compétence 3 : Créer des outils et applications informatiques</h3>
                 <div class="ac-list">
                     <h4>Apprentissages Critiques travaillés :</h4>
                     <ul>
@@ -1440,80 +1475,67 @@
                 <div class="ac-list">
                     <h4>Apprentissages Critiques travaillés :</h4>
                     <ul>
-                        <li><strong>AC 1.X :</strong> [Description] - Niveau [acquis/en cours d'acquisition/à approfondir]</li>
-                        <li><strong>AC 1.X :</strong> [Description] - Niveau [acquis/en cours d'acquisition/à approfondir]</li>
+                        <li><strong>AC 21.01 :</strong> Configurer et dépanner le routage dynamique (OSPF multi-aires) - Niveau acquis </li>
+                        <li><strong>AC 21.05 :</strong> Identifier les réseaux opérateurs et l'architecture d'Internet (Backbone GNS3) - Niveau acquis </li>
                     </ul>
                     <h4>SAÉ concernées :</h4>
-                    <p>[Listez les SAÉ concernées, par exemple : SAÉ 3.1, SAÉ 3.2]</p>
+                    <p>SAÉ 3.1 - Déploiement d'un réseau multi-sites</p>
                     <h4>Synthèse :</h4>
-                    <p><strong>Points forts :</strong> [Décrivez vos points forts pour cette compétence au S3]</p>
-                    <p><strong>Difficultés :</strong> [Décrivez les difficultés rencontrées]</p>
-                    <p><strong>Axes de progression :</strong> [Décrivez vos axes d'amélioration]</p>
+                    <p><strong>Points forts :</strong> Maîtrise de la segmentation réseau via OSPF et capacité à simuler des environnements opérateurs complexes sur GNS3 avec des routeurs Cisco IOL.</p>
+                    <p><strong>Difficultés :</strong> La gestion précise des plans d'adressage en /31 pour les liaisons point-à-point sans gaspillage d'IP.</p>
+                    <p><strong>Axes de progression :</strong> Approfondir le protocole BGP et les mécanismes de redondance plus avancés.</p>
                 </div>
 
                 <h3>Compétence 2 : Connecter les entreprises et les usagers</h3>
                 <div class="ac-list">
                     <h4>Apprentissages Critiques travaillés :</h4>
                     <ul>
-                        <li><strong>AC 2.X :</strong> [Description] - Niveau [acquis/en cours d'acquisition/à approfondir]</li>
-                        <li><strong>AC 2.X :</strong> [Description] - Niveau [acquis/en cours d'acquisition/à approfondir]</li>
+                        <li><strong>AC 22.01 :</strong> Déployer et caractériser des systèmes de transmissions complexes (Boucle CWDM) - Niveau acquis </li>
+                        <li><strong>AC 22.03 :</strong> Mettre en place une connexion multi-site via un réseau opérateur - Niveau acquis </li>
                     </ul>
                     <h4>SAÉ concernées :</h4>
-                    <p>[Listez les SAÉ concernées]</p>
+                    <p>SAÉ 3.1 - Déploiement d'un réseau multi-sites</p>
                     <h4>Synthèse :</h4>
-                    <p><strong>Points forts :</strong> [Décrivez vos points forts]</p>
-                    <p><strong>Difficultés :</strong> [Décrivez les difficultés rencontrées]</p>
-                    <p><strong>Axes de progression :</strong> [Décrivez vos axes d'amélioration]</p>
+                    <p><strong>Points forts :</strong> Compréhension de la couche physique optique avec l'utilisation de longueurs d'onde spécifiques pour chaque client.</p>
+                    <p><strong>Difficultés :</strong> Paramétrage de la connectivité WAN réelle vers les Box de sortie internet.</p>
+                    <p><strong>Axes de progression :</strong> Maîtriser davantage les technologies SD-WAN émergentes.</p>
                 </div>
 
-                <h3>Compétence 3 : Créer des outils et applications informatiques pour les R&T</h3>
-                <div class="ac-list">
-                    <h4>Apprentissages Critiques travaillés :</h4>
-                    <ul>
-                        <li><strong>AC 3.X :</strong> [Description] - Niveau [acquis/en cours d'acquisition/à approfondir]</li>
-                        <li><strong>AC 3.X :</strong> [Description] - Niveau [acquis/en cours d'acquisition/à approfondir]</li>
-                    </ul>
-                    <h4>SAÉ concernées :</h4>
-                    <p>[Listez les SAÉ concernées]</p>
-                    <h4>Synthèse :</h4>
-                    <p><strong>Points forts :</strong> [Décrivez vos points forts]</p>
-                    <p><strong>Difficultés :</strong> [Décrivez les difficultés rencontrées]</p>
-                    <p><strong>Axes de progression :</strong> [Décrivez vos axes d'amélioration]</p>
-                </div>
+                
 
                 <h3>Compétence 4 : Administrer un système d'information sécurisé</h3>
                 <div class="ac-list">
                     <h4>Apprentissages Critiques travaillés :</h4>
                     <ul>
-                        <li><strong>AC 4.X :</strong> [Description] - Niveau [acquis/en cours d'acquisition/à approfondir]</li>
-                        <li><strong>AC 4.X :</strong> [Description] - Niveau [acquis/en cours d'acquisition/à approfondir]</li>
+                        <li><strong>AC 24.02Cyber :</strong> Mettre en œuvre les outils fondamentaux de sécurisation d'une infrastructure - Niveau acquis </li>
+                        <li><strong>AC 24.05Cyber :</strong> Connaître les différents types d'attaque (HSRP, ARP Poisoning) - Niveau acquis </li>
                     </ul>
                     <h4>SAÉ concernées :</h4>
-                    <p>[Listez les SAÉ concernées]</p>
+                    <p>SAÉ 3.03 - Concevoir un réseau informatique et Pentesting</p>
                     <h4>Synthèse :</h4>
-                    <p><strong>Points forts :</strong> [Décrivez vos points forts]</p>
-                    <p><strong>Difficultés :</strong> [Décrivez les difficultés rencontrées]</p>
-                    <p><strong>Axes de progression :</strong> [Décrivez vos axes d'amélioration]</p>
+                    <p><strong>Points forts :</strong> Réalisation d'un audit de sécurité complet et exploitation réussie de failles de niveau 2 (HSRP Takeover).</p>
+                    <p><strong>Difficultés :</strong> Diagnostic rapide des erreurs de connectivité physique (prise murale défectueuse) lors du déploiement.</p>
+                    <p><strong>Axes de progression :</strong> Apprendre à configurer les mécanismes de remédiation (DAI, Port Security) sur les équipements Cisco.</p>
                 </div>
 
-                <h3>Réflexion globale du semestre</h3>
-                <p>
-                    [Rédigez une réflexion globale sur le S3 : ce que vous avez appris, comment vous avez progressé, 
-                    les projets marquants, les compétences développées...]
-                </p>
-                <p>
-                    <strong>Évolution depuis le S2 :</strong> [Comparez votre progression entre S2 et S3]
-                </p>
-                <p>
-                    <strong>Points d'amélioration identifiés :</strong> [Listez vos axes d'amélioration]
-                </p>
-                <p>
-                    <strong>Compétences consolidées :</strong> [Listez les compétences maîtrisées ce semestre]
-                </p>
-                <p>
-                    <strong>Objectifs pour le S4 :</strong> [Définissez vos objectifs pour le semestre suivant]
-                </p>
-            </div>
+                <h3>Réflexion globale sur mon semestre</h3>
+              
+                    <p>
+                        Ce semestre a été un vrai tournant avec la découverte de la cybersécurité et des réseaux opérateurs. La SAÉ 3.1 m'a permis de comprendre comment fonctionne un backbone opérateur, tandis que la SAÉ 3.03 m'a fait passer pour la première fois du côté "attaquant" avec le pentesting.
+                    </p>
+                    <p>
+                        <strong>Évolution depuis le S2 :</strong> J'ai gagné en rigueur. Au S2, je voulais juste que ça marche, mais maintenant je pense à la sécurité et à la redondance dès le début de la conception d'un réseau.
+                    </p>
+                    <p>
+                        <strong>Points d'amélioration :</strong> Je dois faire plus attention à la couche physique. Mes problèmes de câblage et de prises défectueuses m'ont rappelé qu'une bonne config ne sert à rien si le lien physique lâche.
+                    </p>
+                    <p>
+                        <strong>Compétences acquises :</strong> Routage OSPF (multi-aires), audit de sécurité (HSRP, ARP), virtualisation Proxmox et gestion de cœur de réseau.
+                    </p>
+                    <p>
+                        <strong>Objectifs S4 :</strong> Réussir mon stage, approfondir la sécurité active et commencer à passer des certifs pro.
+                    </p>
+                </div>
         </section>
                 
     </div>
